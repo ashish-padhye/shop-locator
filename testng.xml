@@ -1,0 +1,9 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="shop-locator" object-factory="org.powermock.modules.testng.PowerMockObjectFactory">
+
+	<test name="shop-locator">
+		<packages>
+			<package name="com.ashish.shoplocator.*" />
+		</packages>
+	</test>
+</suite>

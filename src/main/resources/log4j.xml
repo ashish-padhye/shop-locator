@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration PUBLIC "-//log4j/log4j Configuration//EN" "log4j.dtd">
+ 
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+ 
+    <appender name="Appender1" class="org.apache.log4j.ConsoleAppender">
+       <layout class="org.apache.log4j.PatternLayout">
+          <param name="ConversionPattern" value="%-7p %d{dd-MM-yyyy HH:mm:ss} %C %x - %m%n"/>
+       </layout>
+    </appender>
+  
+    <appender name="Appender2" class="org.apache.log4j.RollingFileAppender">
+       <param name="File" value="${catalina.home}/logs/shop-locator.log" />
+       <param name="MaxFileSize" value="5MB" />
+       <layout class="org.apache.log4j.PatternLayout">
+          <param name="ConversionPattern" value="%-7p %d{dd-MM-yyyy HH:mm:ss} %C %x - %m%n"/>
+       </layout>
+    </appender>
+ 
+    <root level="ERROR">
+        <appender-ref ref="Appender1" />
+        <appender-ref ref="Appender2" />
+    </root>
+        
+</log4j:configuration>

@@ -19,9 +19,20 @@
 	<!-- Import Resources -->
  	<import resource="spring-rest.xml" />
  	
-	<mvc:annotation-driven/>
+	<mvc:annotation-driven conversion-service="conversionService"/>
 	
 	<!-- Support aspect annotations   -->
 	<aop:aspectj-autoproxy />
-     
+	
+	<bean id="conversionService" class="org.springframework.context.support.ConversionServiceFactoryBean">
+        <property name="converters">
+            <list>
+            	<bean class="com.ashish.shoplocator.converter.RetailManagerRequestDtoToModelTwoWayConverter" />
+            	<bean class="com.ashish.shoplocator.converter.ShopAddressDtoToModelTwoWayConverter" />
+            </list>
+        </property>
+    </bean>    
+    <util:list id="shopDetailRepository" value-type="com.ashish.shoplocator.model.ShopDetailModel">
+	</util:list>
+    
 </beans>
